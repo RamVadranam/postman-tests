@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "dce32aa1-98d8-407e-a6c2-bc609811d5aa",
+		"name": "Api Get Validation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://reqres.in/api/users?page=2\n\n",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4ac1997e-7366-4491-94ed-5af275f04e44",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var response = JSON.parse(responseBody)",
+							"tests[\"Data count should be 3\"] = response.data.length == 3",
+							"tests[\"First record should have data\"] = response.data[0].id == 4",
+							"tests[\"First record name should have\"] = response.data[0].first_name == \"Eve\"",
+							"tests[\"last name \"] = response.data[0].last_name == \"Holt\"",
+							"var jsonObject = xml2Json(responseBody);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2\n\n",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2\n\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://reqres.in/api/users/2\n\n\n\n",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4ac1997e-7366-4491-94ed-5af275f04e44",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var response = JSON.parse(responseBody)",
+							"tests[\"Should have id 2\"] = response.data.id == 2",
+							"tests[\"Should have first name\"] = response.data.first_name == \"Janet\"",
+							"tests[\"SHoudl have last name\"] = response.data.last_name == \"Weaver\"",
+							"tests[\"Should have avatar\"] = response.data.avatar = \"https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

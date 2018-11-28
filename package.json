@@ -1,0 +1,14 @@
+{
+  "name": "postman-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "newman run ApiValidation.postman_collection.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "newman": "^4.2.2"
+  }
+}
